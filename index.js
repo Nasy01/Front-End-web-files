@@ -1,24 +1,20 @@
-const firstInp = document.getElementById("first-inp");
-const secondInp = document.getElementById("second-inp");
-const responseEL = document.getElementById("text");
+const resultEl = document.getElementById("output-text");
+
+const increaseBtn = document.getElementById("increase-btn");
+
 const enterBtn = document.getElementById("enter-btn");
 
-enterBtn.addEventListener("click", ()=> {
-let amount = parseInt(firstInp.value, 10);
-firstInp.value = ""
-let age = parseInt(secondInp.value, 10);
-secondInp.value = ""
-let message = "";
+const pValue = document.getElementById("pre-value");
 
-if(amount === 500 && age === 18){
-    message = "You are welcome to Klobb X Night club"
-    responseEL.textContent = message
-} else if(amount === 500 && age != 18) {
-    message = "You are welcome to Klobb X Night club"
-    responseEL.textContent = message
-} else{
-    message = "You are not permitted, Thanks for coming"
-    responseEL.textContent = message
-}
+let count = 0;
 
+increaseBtn.addEventListener("click", function() {
+    count+= 1;
+    resultEl.textContent = count;
+})
+
+enterBtn.addEventListener("dblclick", function() {
+    pValue.textContent+= count + "-";
+    count = 0;
+    resultEl.textContent = count;
 })
